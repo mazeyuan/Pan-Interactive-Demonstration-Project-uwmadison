@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+    <head>
+        <title>Pan's Lab Research Demonstration - Intoduction</title>
+        <!-- <link rel = "stylesheet" type = "text/css" href = "home.css"></link> -->
+        <link rel = "stylesheet" type = "text/css" href = "../bootstrap.css"></link>
+        <link rel = "stylesheet" type = "text/css" href = "density.css">
+        <link rel = "stylesheet" type = "text/css" href = "../home.css"></link>
+
+        <style>
+            .flow_pattern {
+              background-color: #777;
+              color: white;
+              cursor: pointer;
+              padding: 18px;
+              width: 100%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+            }
+            
+            .active, .collapsible:hover {
+              background-color: #555;
+            }
+            
+            .content {
+              padding: 0 18px;
+              display: none;
+              overflow: hidden;
+              background-color: #f1f1f1;
+            }
+
+            .answer {
+              color:red;
+            }
+            a:hover {
+              text-decoration: none;
+            }
+        </style>
+    </head>
+
+
+
+    <body>     
+        <h1 class="display-4"><a href = "../home.html">Pan's Lab Research Demonstration</h1>
+        <nav class = "navbar navbar-light" style = "background-color: #e3f2fd;">
+              <ul class="nav navbar-nav">
+                  <li><a href = "#"></a></li>
+                  <li><a href = "#">Density</a></li>
+                  <li><a href = "#">Flow Pattern</a></li>
+                  <li><a href = "#">Viscosity</a></li>
+              </ul>
+        </nav>
+
+        <!-- Density -->
+        <h2 class="display-4">Density</h2>
+        <div>
+          <p class="lead"><b>Density is used to quantify how heavy is the object for a certain volumn.</b></p>
+        </div>
+        <table class="table table-hover table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Fluid</th>
+              <th scope="col">Density(kg/m^3)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Water</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>gasoline</td>
+              <td>660</td>
+            </tr>
+            <tr>
+              <td>milk</td>
+              <td>1028</td>
+            </tr>
+            <tr>
+              <td>mercury</td>
+              <td>13550</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr class="my-4">
+
+       <!-- Flow Pattern -->
+       <h2 class="display-4">Flow Pattern</h2>
+       <button type = "button" class="flow_pattern">streamline</button>
+       <div class = "content">
+           <p>
+            A <b>streamline</b> is a line everywhere tangent to the velocity vector at a given instant.
+           </p>
+       </div>
+       <button type = "button" class="flow_pattern">pathline</button>
+       <div class = "content">
+           <p>
+            A <b>pathline</b> is the actual path traversed by a given fluid particle.
+           </p>
+       </div>
+       <button type = "button" class="flow_pattern">streakline</button>
+       <div class = "content">
+           <p>
+            A <b>streakline</b> is the locus of particle s that have earlier passed through a prescribed point.
+           </p>
+       </div>
+       <button type = "button" class="flow_pattern">timeline</button>
+       <div class = "content">
+           <p>
+            A <b>timeline</b> is a set of fluid particles that form a line at a given instant.
+           </p>
+       </div>
+
+       <!-- enable collapse -->
+       <script>
+        var coll = document.getElementsByClassName("flow_pattern");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+        </script>
+
+      <hr class="my-4">
+      <!-- Viscosity -->
+      <h2 class="display-4">Viscosity</h2>
+        <div>
+          <p class="lead"><b>Viscosity is the measure of a fluid's resistance to flow. If the fluid is less easy to flow, it is more viscous.</b></p>
+        </div>
+
+        <div>For example, which of following fluid has higher vicosity?</div>
+        <input type="radio" id="water" name="fluid" value="water">
+        <label for="water">Water</label><img src="water.jpeg" ><br>
+        <input type="radio" id="honey" name="fluid" value="honey">
+        <label for="honey">Honey</label><img src="honey.jpeg" ><br>
+
+        <button type="button" class="btn btn-success" id = "viscosity">ANSWER</button>
+        <!-- <div class = "answer" id = "viscosity">ANSWER</div> -->
+        <div id = "answer_viscosity"></div>
+
+        <script>
+          document.getElementById("viscosity").onclick = function() {
+            if (document.getElementById("viscosity").innerHTML == "ANSWER") {
+              document.getElementById("viscosity").innerHTML = "HIDE";
+              document.getElementById("answer_viscosity").innerHTML = "The correct answer is <b>honey</b>. It fairly easy since it flow slower as you pour."
+            } else if (document.getElementById("viscosity").innerHTML == "HIDE") {
+              document.getElementById("viscosity").innerHTML = "ANSWER";
+              document.getElementById("answer_viscosity").innerHTML = "";
+            }
+          }
+        </script>
+
+        <!-- table -->
+
+        
+       <h2 class="display-4">Reynolds Number</h2>
+        
+       <script src="https://www.gstatic.com/charts/loader.js"></script>
+       <script type = "text/javascript" src = "density.js"></script>
+       <script type = "text/javascript" src = "flow-pattern.js"></script>
+    </body>
+</html>   

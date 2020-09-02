@@ -1,0 +1,10 @@
+#ship {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ship:hover {
+    transform: translateY(30);
+    border-style: dotted;
+}
